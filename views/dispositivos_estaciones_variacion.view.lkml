@@ -33,9 +33,14 @@ view: dispositivos_estaciones_variacion {
   measure: total_device_lat {
     type: sum
     sql: ${device_lat} ;;  }
-  measure: average_device_lat {
+
+ measure: average_device_lat {
     type: average
     sql: ${device_lat} ;;  }
+
+  measure: average_device_lon {
+    type: average
+    sql: ${device_lon} ;;  }
 
   dimension: device_lon {
     type: number
@@ -86,6 +91,11 @@ view: dispositivos_estaciones_variacion {
     sql_latitude: ${TABLE}.device_lat ;;
     sql_longitude: ${TABLE}.device_lon ;;
   }
+  dimension: location2 {
+    type: location
+    sql_latitude: ${TABLE}.device_lat_est ;;
+    sql_longitude: ${TABLE}.device_lon_est ;;
+  }
   measure: count {
     type: count
   }
@@ -97,4 +107,5 @@ view: dispositivos_estaciones_variacion {
     type: sum
     sql: ${TABLE}.total_huellas ;;
   }
+
 }

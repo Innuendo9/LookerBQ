@@ -93,6 +93,12 @@ view: dispositivos_accesos_variacion {
     sql_latitude: ${TABLE}.device_lat ;;
     sql_longitude: ${TABLE}.device_lon ;;
   }
+
+  dimension: location2 {
+    type: location
+    sql_latitude: ${TABLE}.device_lat_est ;;
+    sql_longitude: ${TABLE}.device_lon_est ;;
+  }
   measure: count {
     type: count
   }
